@@ -19,15 +19,15 @@ public class StudentList {
         Student s = new Student();
         s.enterStudentInfo();
         studentList.add(s);
-        System.out.println("Student added successfully!\n");
+        System.out.println("hoc sinh da them thanh cong!\n");
     }
 
     public void displayAllStudents() {
         if (studentList.isEmpty()) {
-            System.out.println("No students found.\n");
+                System.out.println("khong tim thay hoc sinh nao.\n");
             return;
         }
-        System.out.println("===== STUDENT LIST =====");
+        System.out.println("Danh sach sinh vien");
         for (Student s : studentList) {
             s.displayStudentInfo();
             System.out.println("-------------------------");
@@ -70,13 +70,13 @@ public class StudentList {
         for (Student s : studentList) {
             if (s.studentId.equalsIgnoreCase(id)) {
                 s.editStudentById(id);
-                System.out.println("Student updated successfully!\n");
+                System.out.println("Cap nhat sinh vien thanh cong!\n");
                 found = true;
                 break;
             }
         }
         if (!found) {
-            System.out.println("Student not found.\n");
+            System.out.println("Khong tim thay hoc sinh nao.\n");
         }
     }
 
@@ -84,11 +84,11 @@ public class StudentList {
         for (int i = 0; i < studentList.size(); i++) {
             if (studentList.get(i).studentId.equalsIgnoreCase(id)) {
                 studentList.remove(i);
-                System.out.println("Student deleted successfully!\n");
+                System.out.println("Hoc sinh da xoa thanh cong!\n");
                 return true;
             }
         }
-        System.out.println("Student not found.\n");
+        System.out.println("Khong tim thay học sinh.\n");
         return false;
     }
 
@@ -103,7 +103,7 @@ public class StudentList {
                 }
             }
         }
-        System.out.println("Sorted by name.\n");
+        System.out.println("Sap xep theo ten.\n");
     }
 
     public void sortByGpa() {
@@ -116,7 +116,7 @@ public class StudentList {
                 }
             }
         }
-        System.out.println("Sorted by GPA.\n");
+        System.out.println("sap xep theo GPA.\n");
     }
 
     private int compare(String a, String b) {
@@ -145,9 +145,9 @@ public class StudentList {
                         + s.major + ";" + s.gpa);
                 bw.newLine();
             }
-            System.out.println("Saved to file successfully.\n");
+            System.out.println("Lưu file thanh cong.\n");
         } catch (IOException e) {
-            System.out.println("Error saving file: " + e.getMessage());
+            System.out.println("Loi khi luu tep: " + e.getMessage());
         }
     }
 
@@ -165,7 +165,7 @@ public class StudentList {
                     try{
                          s.dateOfBirth = sdf.parse(parts[2]);
                     } catch(ParseException e) {
-                        System.out.println("INvailid date for students " + s.studentId);
+                        System.out.println("Ngay khong hop le " + s.studentId);
                         s.dateOfBirth = new Date();
                     }
                     s.major = parts[3];
@@ -173,9 +173,9 @@ public class StudentList {
                     studentList.add(s);
                 }
             }
-            System.out.println("Loaded from file successfully.\n");
+            System.out.println("Da tai tep thanh cong.\n");
         } catch (IOException e) {
-            System.out.println("Error reading file: " + e.getMessage());
+                System.out.println("Loi tep: " + e.getMessage());
         }
     }
 }
